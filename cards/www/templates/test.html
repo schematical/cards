@@ -6,17 +6,18 @@
             <slide-box>
                 <slide ng-repeat="card in cards">
                     <div class="box blue">
-                        <!--<div ng-switch-when="">-->
+                        <div ng-switch="disp_skill_info">
+                        <div ng-switch-when="true">
                             <!-- code to render a large video block-->
 
                             <h1>{{card.title}}</h1>
                             <h3>{{card.athlete}}</h3>
                             <p></p>
 
-                       <!-- </div>
-                        <div ng-switch-default>-->
+                       </div>
+                       <div ng-switch-default>
                             <!-- code to render the regular video block -->
-                       <!-- </div>-->
+                       </div>
                     </div>
                 </slide>
             </slide-box>
@@ -46,7 +47,7 @@
                     <li class="item item-toggle">
                         Display Card Info:
                         <label class="toggle">
-                            <input type="checkbox" ng-model='disp_card_info'  ng-change="update_settings()">
+                            <input type="checkbox" ng-model='disp_card_info'ng-change="update_settings()">
                             <div class="track">
                                 <div class="handle"></div>
                             </div>
@@ -55,16 +56,18 @@
 
                     <li class="item item-toggle">
                         Display Skill Info:
-                        <label class="toggle">
-                            <input type="checkbox" ng-model='disp_skill_info'  ng-change="update_settings()">
+                        <label class="toggle" ng-model='disp_skill_info'  ng-change="update_settings()">
+                            <input type="checkbox">
                             <div class="track">
                                 <div class="handle"></div>
                             </div>
                         </label>
                     </li>
                 </ul>
+                <tt>disp_card_info = {{disp_card_info}}</tt><br/>
+                <tt>disp_skill_info = {{disp_skill_info}}</tt><br/>
 
-
+                <button class="button button-full button-positive" ng-click="closeMenu()">Create</button>
             </div>
         </content>
     </div>
