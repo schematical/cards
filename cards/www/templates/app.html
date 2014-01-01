@@ -8,18 +8,22 @@
   <tabs tabs-style="tabs-icon-top" tabs-type="tabs-positive" animate-nav="false">
 
     <!-- Cards tab -->
-    <tab title="Cards" icon="icon ion-home" ng-controller="CardTabCtrl">
+    <tab title="Cards List" icon="icon ion-home" ng-controller="CardTabCtrl">
       <content has-header="true" has-tabs="true">
         <list>
-          <item ng-repeat="pet in pets" type="item-text-wrap" href="#/pet/{{pet.id}}">
-              <h3>{{pet.title}}</h3>
-              <p>{{pet.description}}</p>
+          <item ng-repeat="card in cards" type="item-text-wrap" href="#/card/{{card.id}}">
+              <h3>{{card.title}}</h3>
+              <p>{{card.athlete}}</p>
             </item>
           </item>
         </list>
       </content>
     </tab>
+    <tab title='Test' icon="icon ion-clock">
+        <content>
 
+        </content>
+    </tab>
     <!-- Adoption tab -->
     <tab title="Adopt" icon="icon ion-heart">
       <content has-header="true" has-tabs="true">
@@ -44,14 +48,14 @@
     </tab>
 
     <!-- Home tab -->
-    <tab title="About" icon="icon ion-search">
+    <!--<tab title="About" icon="icon ion-search">
       <content has-header="true" has-tabs="true" padding="true">
         <h3>About this app</h3>
         <p>
           This is a sample seed project for the Ionic Framework. Please change it to match your needs.
         </p>
       </content>
-    </tab>
+    </tab>-->
 
   </tabs>
 </nav-page>

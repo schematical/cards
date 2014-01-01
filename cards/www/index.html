@@ -27,22 +27,35 @@
         <script src="js/app.js"></script>
         <script src="js/services.js"></script>
         <script src="js/controllers.js"></script>
+        <style>
+            .slider {
+                height: 100%;
+            }
+            .slider-slide {
+                padding-top: 80px;
+                color: #000;
+                background-color: #fff;
+                text-align: center;
+
+                font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+                font-weight: 300;
+            }
+
+        </style>
     </head>
 
     <!-- 'starter' is the name of this angular module (js/app.js)-->
     <body ng-app="starter">
-        <div ng-controller="MenuCtrl">
-            <side-menus>
+        <!--<div ng-controller="MenuCtrl">
+            <side-menus>-->
                 <!-- Our navigation router with some animations set -->
-                <pane nav-router animation="slide-left-right-ios7" side-menu-content>
+                <pane nav-router animation="slide-left-right-ios7"><!-- side-menu-content> -->
                     <!-- The nav bar that will be updated as we navigate -->
-                    <nav-bar class="nav-title-slide-ios7" type="bar-positive" back-button-type="button-icon"
-                             back-button-icon="icon ion-arrow-left-c"></nav-bar>
-
+                    <nav-bar class="nav-title-slide-ios7" type="bar-default" back-button-type="button-icon" back-button-icon="icon ion-arrow-left-c"></nav-bar>
                     <!-- where the content of each page will be rendered -->
                     <ng-view></ng-view>
                 </pane>
-                <side-menu side="left">
+                <!--<side-menu side="left">
                     <header class="bar bar-header bar-assertive">
                         <h1 class="title">Left</h1>
                     </header>
@@ -72,7 +85,7 @@
                         </ul>
                     </content>
                 </side-menu>
-            </side-menus>
+            </side-menus>-->
         </div>
 
 
