@@ -35,11 +35,28 @@ angular.module('starter.controllers', [])//angular.module('sideMenuTest', ['ioni
   $scope.card = Card.get($routeParams.cardId);
 })
 //Menu control
-.controller('TestCtrl', function($scope, Cards) {
+.controller('TestCtrl', function($scope, Cards, Modal) {
     // Main app controller, empty for the example
     $scope.cards = Cards.shuffle();
+    window.localStorage.setItem('disp_card_info',true);
+
+    $scope.disp_card_info = { checked: window.localStorage.getItem('disp_card_info') }
+    $scope.disp_skill_info = { checked:window.localStorage.getItem('disp_skill_info') }
+
+    $scope.update_settings = function(){
+        window.localStorage.setItem('disp_card_info', $scope.disp_card_info);
+        window.localStorage.setItem('disp_skill_info',  $scope.disp_skill_info);
+    }
 
 
+    Modal.fromTemplateUrl('modal.html', function(modal) {
+        $scope.modal = modal;
+    }, {
+        // Use our scope for the scope of the modal to keep it simple
+        scope: $scope,
+        // The animation we want to use for the modal entrance
+        animation: 'slide-in-up'
+    });
 
     // Move to the next slide
     $scope.next = function() {
@@ -49,7 +66,14 @@ angular.module('starter.controllers', [])//angular.module('sideMenuTest', ['ioni
     $scope.prev = function() {
         $scope.$broadcast('slideBox.prevSlide');
     };
+    $scope.showMenu = function() {
 
+        $scope.modal.show();
+
+    };
+    $scope.closeMenu = function() {
+        $scope.modal.hide();
+    };
         // If this is not the first slide, give it a back button
         $scope.leftButtons = [
             {
@@ -59,7 +83,16 @@ angular.module('starter.controllers', [])//angular.module('sideMenuTest', ['ioni
                     // Move to the previous slide
                     $scope.prev();
                 }
-            }
+            },
+            {
+                content: 'Options',
+                type: 'button-positive button-clear',
+                tap: function(e) {
+                    // Move to the previous slide
+                    $scope.showMenu();
+                }
+            },
+
         ];
 
 

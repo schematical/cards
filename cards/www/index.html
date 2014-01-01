@@ -46,48 +46,13 @@
 
     <!-- 'starter' is the name of this angular module (js/app.js)-->
     <body ng-app="starter">
-        <div ng-controller="MenuCtrl">
-            <side-menus>
-                <!-- Our navigation router with some animations set -->
-                <pane nav-router animation="slide-left-right-ios7"><!-- side-menu-content> -->
-                    <!-- The nav bar that will be updated as we navigate -->
-                    <nav-bar class="nav-title-slide-ios7" type="bar-default" back-button-type="button-icon" back-button-icon="icon ion-arrow-left-c"></nav-bar>
-                    <!-- where the content of each page will be rendered -->
-                    <ng-view></ng-view>
-                </pane>
-                <side-menu side="left">
-                    <header class="bar bar-header bar-assertive">
-                        <h1 class="title">Left</h1>
-                    </header>
-                    <content has-header="true">
-                        <ul class="list">
-                            <a href="#" class="item" ng-repeat="item in list">
-                                {{item.text}}
-                            </a>
-                        </ul>
-                    </content>
-                </side-menu>
-                <side-menu side="right">
-                    <header class="bar bar-header bar-assertive">
-                        <h1 class="title">Right</h1>
-                    </header>
-                    <content has-header="true">
-                        <ul class="list">
-                            <a href="#" class="item" ng-repeat="item in list">
-                                //{{item.text}}
-                                <label class="toggle">
-                                    <input type="checkbox">
-                                    <div class="track">
-                                        <div class="handle"></div>
-                                    </div>
-                                </label>
-                            </a>
-                        </ul>
-                    </content>
-                </side-menu>
-            </side-menus>
-        </div>
 
-
+        <!-- Our navigation router with some animations set -->
+        <pane nav-router animation="slide-left-right-ios7"><!-- side-menu-content> -->
+            <!-- The nav bar that will be updated as we navigate -->
+            <nav-bar class="nav-title-slide-ios7" type="bar-default" back-button-type="button-icon" back-button-icon="icon ion-arrow-left-c"></nav-bar>
+            <!-- where the content of each page will be rendered -->
+            <ng-view></ng-view>
+        </pane>
     </body>
 </html>

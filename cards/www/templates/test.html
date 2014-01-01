@@ -1,12 +1,71 @@
 <nav-page id="intro-page" left-buttons="leftButtons" right-buttons="rightButtons">
+ <!--   <side-menus>
+        &lt;!&ndash; Center content &ndash;&gt;-->
+        <pane>
 
-    <slide-box>
-        <slide ng-repeat="card in cards">
-            <div class="box blue">
-                <h1>{{card.title}}</h1>
-                <h3>{{card.athlete}}</h3>
-                <p></p>
-            </div>
-        </slide>
-    </slide-box>
+            <slide-box>
+                <slide ng-repeat="card in cards">
+                    <div class="box blue">
+                        <!--<div ng-switch-when="">-->
+                            <!-- code to render a large video block-->
+
+                            <h1>{{card.title}}</h1>
+                            <h3>{{card.athlete}}</h3>
+                            <p></p>
+
+                       <!-- </div>
+                        <div ng-switch-default>-->
+                            <!-- code to render the regular video block -->
+                       <!-- </div>-->
+                    </div>
+                </slide>
+            </slide-box>
+
+        </pane>
+
+     <!--   &lt;!&ndash; Left menu &ndash;&gt;
+        <side-menu side="left">
+
+        </side-menu>
+
+        &lt;!&ndash; Right menu &ndash;&gt;
+        &lt;!&ndash;<side-menu side="right">
+        </side-menu>&ndash;&gt;
+    </side-menus>-->
 </nav-page>
+<script id="modal.html" type="text/ng-template">
+    <div class="modal">
+        <header class="bar bar-header bar-positive">
+            <h1 class="title">New Contact</h1>
+            <button class="button button-clear button-positive" ng-click="closeModal()">Cancel</button>
+        </header>
+        <content has-header="true">
+            <div class="padding">
+                <ul class="list">
+
+                    <li class="item item-toggle">
+                        Display Card Info:
+                        <label class="toggle">
+                            <input type="checkbox" ng-model='disp_card_info'  ng-change="update_settings()">
+                            <div class="track">
+                                <div class="handle"></div>
+                            </div>
+                        </label>
+                    </li>
+
+                    <li class="item item-toggle">
+                        Display Skill Info:
+                        <label class="toggle">
+                            <input type="checkbox" ng-model='disp_skill_info'  ng-change="update_settings()">
+                            <div class="track">
+                                <div class="handle"></div>
+                            </div>
+                        </label>
+                    </li>
+                </ul>
+
+
+            </div>
+        </content>
+    </div>
+</script>
