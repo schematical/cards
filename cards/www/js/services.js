@@ -161,7 +161,7 @@ angular.module('starter.services', [])
                     athlete: 'Bri'
                 }
             },
-            'floor': {//
+            'diamond': {//
                 2: {
                     title: 'Cart Wheel',
                     athlete: 'Scott'

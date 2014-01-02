@@ -1,36 +1,54 @@
 <nav-page id="intro-page" left-buttons="leftButtons" right-buttons="rightButtons">
- <!--   <side-menus>
-        &lt;!&ndash; Center content &ndash;&gt;-->
-        <pane>
+    <!--   <side-menus>
+           &lt;!&ndash; Center content &ndash;&gt;-->
+    <pane>
 
-            <slide-box>
-                <slide ng-repeat="card in cards">
-                    <div class="box blue">
-                        <div ng-switch="disp_skill_info">
-                        <div ng-switch-when="true">
-                            <!-- code to render a large video block-->
+        <slide-box>
+            <slide ng-repeat="card in cards">
+                <div class="box blue">
+                    <div class="list card">
 
-                            <h1>{{card.title}}</h1>
-                            <h3>{{card.athlete}}</h3>
-                            <p></p>
+                        <div class="item item-avatar">
+                            <div ng-switch="disp_skill_info">
+                                <div ng-switch-when="true">
+                                    <img src='img/{{card.suit}}.png'/>
+                                    <h2>{{card.title}}</h2>
+                                    <p>{{card.athlete}}</p>
+                                </div>
+                                <div ng-switch-default></div>
+                                <div ng-switch="disp_skill_info">
+                                    <div ng-switch-when="true">
+                                        <div style='float:right;'>
+                                            <h1>{{card.num}}</h1>
+                                        </div>
+                                        {{card.num}} of {{card.suit}}s
 
-                       </div>
-                       <div ng-switch-default>
-                            <!-- code to render the regular video block -->
-                       </div>
+                                    </div>
+                                    <div ng-switch-default></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="item item-image">
+                            <img src='img/{{card.suit}}.png'/>
+                        </div>
+
+                        <a class="item item-icon-left assertive" href="#">
+
+                        </a>
                     </div>
-                </slide>
-            </slide-box>
+                </div>
+            </slide>
+        </slide-box>
+    </pane>
 
-        </pane>
-
-     <!--   &lt;!&ndash; Left menu &ndash;&gt;
+    <!--   &lt;!&ndash; Left menu &ndash;&gt;
         <side-menu side="left">
 
         </side-menu>
 
         &lt;!&ndash; Right menu &ndash;&gt;
-        &lt;!&ndash;<side-menu side="right">
+    &lt;!&ndash;<side-menu side="right">
         </side-menu>&ndash;&gt;
     </side-menus>-->
 </nav-page>
@@ -47,7 +65,8 @@
                     <li class="item item-toggle">
                         Display Card Info:
                         <label class="toggle">
-                            <input type="checkbox" ng-model='disp_card_info'ng-change="update_settings()">
+                            <input type="checkbox" ng-model='disp_card_info' ng-change="update_settings()">
+
                             <div class="track">
                                 <div class="handle"></div>
                             </div>
@@ -56,8 +75,9 @@
 
                     <li class="item item-toggle">
                         Display Skill Info:
-                        <label class="toggle" ng-model='disp_skill_info'  ng-change="update_settings()">
+                        <label class="toggle" ng-model='disp_skill_info' ng-change="update_settings()">
                             <input type="checkbox">
+
                             <div class="track">
                                 <div class="handle"></div>
                             </div>

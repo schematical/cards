@@ -39,25 +39,17 @@ angular.module('starter.controllers', [])//angular.module('sideMenuTest', ['ioni
     // Main app controller, empty for the example
     $scope.cards = Cards.shuffle();
 
+    $scope.disp_card_info = window.localStorage.getItem('disp_card_info');
+    $scope.disp_skill_info = window.localStorage.getItem('disp_skill_info');
 
+    $scope.disp_card_info = true;
+    $scope.disp_skill_info = true;
 
-    $scope.update_settings = function(){
-        console.log($scope);
-        console.log(window.localStorage.getItem('disp_card_info') + ' - ' + $scope.disp_card_info);
-        console.log(window.localStorage.getItem('disp_skill_info') + ' - ' + $scope.disp_skill_info);
-        window.localStorage.setItem('disp_card_info', $scope.disp_card_info);
-        window.localStorage.setItem('disp_skill_info',  $scope.disp_skill_info);
-
-
-    }
 
     Modal.fromTemplateUrl('modal.html', function(modal) {
         $scope.modal = modal;
 
 
-
-        $scope.disp_card_info = window.localStorage.getItem('disp_card_info');
-        $scope.disp_skill_info = window.localStorage.getItem('disp_skill_info');
 
     }, {
         // Use our scope for the scope of the modal to keep it simple
@@ -76,6 +68,12 @@ angular.module('starter.controllers', [])//angular.module('sideMenuTest', ['ioni
         $scope.$broadcast('slideBox.prevSlide');
     };
     $scope.showMenu = function() {
+
+/*      console.log($scope);
+        console.log(window.localStorage.getItem('disp_card_info') + ' - ' + $scope.disp_card_info);
+        console.log(window.localStorage.getItem('disp_skill_info') + ' - ' + $scope.disp_skill_info);*/
+        window.localStorage.setItem('disp_card_info', $scope.disp_card_info);
+        window.localStorage.setItem('disp_skill_info',  $scope.disp_skill_info);
 
         $scope.modal.show();
 
