@@ -51,11 +51,25 @@
     &lt;!&ndash;<side-menu side="right">
         </side-menu>&ndash;&gt;
     </side-menus>-->
+    <!--<div class="bar bar-subheader  item-input-inset">
+        <label class="item-input-wrapper">
+            <i class="icon ion-ios7-search placeholder-icon"></i>
+            <input type="search" placeholder="Answer">
+        </label>
+        &nbsp;
+        <label class="item-input-wrapper ">
+            <i class="icon ion-ios7-search placeholder-icon"></i>
+            <input type="search" placeholder="Answer">
+        </label>
+        <button class="button button-clear">
+            Go
+        </button>
+    </div>-->
 </nav-page>
 <script id="modal.html" type="text/ng-template">
     <div class="modal">
         <header class="bar bar-header bar-positive">
-            <h1 class="title">New Contact</h1>
+            <h1 class="title">Settings</h1>
             <button class="button button-clear button-positive" ng-click="closeModal()">Cancel</button>
         </header>
         <content has-header="true">
@@ -90,5 +104,15 @@
                 <button class="button button-full button-positive" ng-click="closeMenu()">Create</button>
             </div>
         </content>
+    </div>
+</script>
+<script id="test_me.html" type="text/ng-template">
+    <div class="modal">
+
+        <div class="row" ng-repeat="num_data in cards_by_num" >
+
+            <div class="col" ng-repeat="card in num_data" >{{card.num}} of {{card.suit}}</div>
+
+        </div>
     </div>
 </script>

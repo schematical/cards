@@ -238,6 +238,21 @@ angular.module('starter.services', [])
                 }
                 return data;
             },
+            cards_by_num:function(){
+                var data = {};
+                for (num in cards.heart) {
+                    if(!data[num]){
+                        data[num] = {};
+                    }
+                    for(suit in cards){
+
+                        cards[suit][num].suit = suit;
+                        cards[suit][num].num = num;
+                        data[num][suit] = cards[suit][num];
+                    }
+                }
+                return data;
+            },
             get: function (suit, num) {
                 if(num){
                     // Simple index lookup

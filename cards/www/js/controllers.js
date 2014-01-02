@@ -13,7 +13,6 @@ angular.module('starter.controllers', [])//angular.module('sideMenuTest', ['ioni
     $scope.openLeft = function() {
         $scope.sideMenuController.toggleLeft();
     };
-
 })
 
 // A simple controller that fetches a list of data
@@ -38,19 +37,26 @@ angular.module('starter.controllers', [])//angular.module('sideMenuTest', ['ioni
 .controller('TestCtrl', function($scope, Cards, Modal) {
     // Main app controller, empty for the example
     $scope.cards = Cards.shuffle();
+    $scope.cards_by_num = Cards.cards_by_num();
 
     $scope.disp_card_info = window.localStorage.getItem('disp_card_info');
     $scope.disp_skill_info = window.localStorage.getItem('disp_skill_info');
 
     $scope.disp_card_info = true;
-    $scope.disp_skill_info = true;
+    //$scope.disp_skill_info = true;
 
 
     Modal.fromTemplateUrl('modal.html', function(modal) {
         $scope.modal = modal;
+    }, {
+        // Use our scope for the scope of the modal to keep it simple
+        scope: $scope,
+        // The animation we want to use for the modal entrance
+        animation: 'slide-in-up'
+    });
 
-
-
+    Modal.fromTemplateUrl('test_me.html', function(modal) {
+        $scope.modal_test_me = modal;
     }, {
         // Use our scope for the scope of the modal to keep it simple
         scope: $scope,
@@ -78,6 +84,11 @@ angular.module('starter.controllers', [])//angular.module('sideMenuTest', ['ioni
         $scope.modal.show();
 
     };
+    $scope.showTestMe = function() {
+
+        $scope.modal_test_me.show();
+
+    };
     $scope.closeMenu = function() {
         $scope.modal.hide();
     };
@@ -95,7 +106,6 @@ angular.module('starter.controllers', [])//angular.module('sideMenuTest', ['ioni
                 content: 'Options',
                 type: 'button-positive button-clear',
                 tap: function(e) {
-                    // Move to the previous slide
                     $scope.showMenu();
                 }
             },
@@ -104,6 +114,13 @@ angular.module('starter.controllers', [])//angular.module('sideMenuTest', ['ioni
 
 
         $scope.rightButtons = [
+            {
+                content: 'Test Me',
+                type: 'button-positive button-clear',
+                tap: function(e) {
+                    $scope.showTestMe();
+                }
+            },
             {
                 content: 'Next',
                 type: 'button-positive button-clear',
